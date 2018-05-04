@@ -26,6 +26,7 @@ app.use(views(__dirname + '/views', {
   extension: 'pug'
 }))
 
+
 // logger
 app.use(async (ctx, next) => {
   const start = new Date()
@@ -45,8 +46,8 @@ app.on('error', (err, ctx) => {
   console.error('server error', err, ctx)
 });
 
-app.listen(3000, () => {
-  console.log('已经运行，端口为3000')
+app.listen(3001, () => {
+  console.log('已经运行')
 })
 
 
