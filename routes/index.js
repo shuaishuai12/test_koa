@@ -2,8 +2,9 @@ const router = require('koa-router')()
 var mongoose=require('mongoose');
 var db1=require( '../models/db' );
 var shuai1 =db1.getModel('lujing');
+router.prefix('/')
 
-router.get('/getList', async ( ctx ) => {
+router.get('/shuai', async ( ctx ) => {
   let st = await shuai1.find();
 ctx.response.type = 'application/json';
 ctx.body = st;
@@ -11,9 +12,9 @@ ctx.body = st;
 
 
 
-router.get('/', async (ctx, next) => {
+router.get('/www', async (ctx, next) => {
   await ctx.render('index', {
-    title: 'Hello Koa 2!'
+    title: 'Hello Koa 2!111'
   })
 })
 

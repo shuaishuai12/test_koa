@@ -6,8 +6,10 @@ const onerror = require('koa-onerror')
 const bodyparser = require('koa-bodyparser')
 const logger = require('koa-logger')
 
-const index = require('./routes/index')
-const users = require('./routes/users')
+
+const router = require('./routes/allrouter')
+/*const index = require('./routes/index')
+const users = require('./routes/users')*/
 
 // error handler
 onerror(app)
@@ -33,8 +35,10 @@ app.use(async (ctx, next) => {
 })
 
 // routes
-app.use(index.routes(), index.allowedMethods())
-app.use(users.routes(), users.allowedMethods())
+/*app.use(index.routes(), index.allowedMethods())
+app.use(users.routes(), users.allowedMethods())*/
+//加载路由中间件
+app.use(router.routes(), router.allowedMethods())
 
 // error-handling
 app.on('error', (err, ctx) => {
